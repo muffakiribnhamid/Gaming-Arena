@@ -3,6 +3,9 @@ import Game from './Game';
 import Dino from './Dino';
 import Pomodoro from './Pomodoro';
 import { useGameContext } from '../context/GameContext';
+import dinoImage from '../assets/dino.png';
+import flappyImage from '../assets/flappy.png';
+import pomodoroImage from '../assets/pomodoro.png';
 
 const HomeScreen = () => {
   const { currentGame, switchGame } = useGameContext();
@@ -32,7 +35,7 @@ const HomeScreen = () => {
                 onClick={() => switchGame('flappy')}
               >
                 <img 
-                  src="./src/assets/flappy.png" 
+                  src={flappyImage}
                   alt="Flappy Bird"
                   className="drop-shadow-[0_0_10px_rgba(255,0,234,0.5)]"
                 />
@@ -46,7 +49,7 @@ const HomeScreen = () => {
                 onClick={() => switchGame('dino')}
               >
                 <img 
-                  src="./src/assets/dino.png" 
+                  src={dinoImage}
                   alt="Dino Game"
                   className="drop-shadow-[0_0_10px_rgba(0,247,255,0.5)]"
                 />
@@ -60,7 +63,7 @@ const HomeScreen = () => {
                 onClick={() => switchGame('pomodoro')}
               >
                 <img 
-                  src="./src/assets/pomodoro.png" 
+                  src={pomodoroImage}
                   alt="Pomodoro Timer"
                   className="drop-shadow-[0_0_10px_rgba(0,247,255,0.5)]"
                 />
