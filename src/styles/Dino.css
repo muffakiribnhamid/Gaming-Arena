@@ -1,0 +1,220 @@
+.dino-game {
+  width: 100%;
+  height: calc(100vh - 64px); /* Subtract navbar height */
+  background: linear-gradient(135deg, #000428, #004e92);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #00f7ff;
+  box-shadow: 0 0 10px #00f7ff;
+}
+
+.dino-character {
+  position: absolute;
+  bottom: 2px;
+  left: 50px;
+  width: 60px;
+  height: 60px;
+  background: url('../assets/dino-game.png') no-repeat center center;
+  background-size: contain;
+  transform-origin: bottom;
+  z-index: 2;
+  transition: transform 0.1s linear;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 2px;
+  width: 15px;
+  background: linear-gradient(135deg, #ff00ea, #7700ff);
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(255, 0, 234, 0.5);
+  z-index: 1;
+}
+
+.obstacle.tall {
+  background: linear-gradient(135deg, #ff0000, #ff6600);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.score-display {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #00f7ff;
+  font-size: 24px;
+  font-family: 'Minecraft', 'VT323', monospace;
+  text-shadow: 0 0 10px #00f7ff;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #00f7ff;
+}
+
+.high-score {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  color: #ff00ea;
+  font-size: 20px;
+  font-family: 'Minecraft', 'VT323', monospace;
+  text-shadow: 0 0 10px #ff00ea;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #ff00ea;
+}
+
+.game-over-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid #00f7ff;
+  box-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
+  z-index: 100;
+}
+
+.game-over-screen h2 {
+  color: #00f7ff;
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: 'Minecraft', 'VT323', monospace;
+  text-shadow: 0 0 10px #00f7ff;
+}
+
+.game-over-screen p {
+  color: white;
+  font-size: 24px;
+  margin: 10px 0;
+  font-family: 'Minecraft', 'VT323', monospace;
+}
+
+.game-over-screen button {
+  background: #00f7ff;
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-family: 'Minecraft', 'VT323', monospace;
+  transition: all 0.3s ease;
+}
+
+.game-over-screen button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.start-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: 'Minecraft', 'VT323', monospace;
+  z-index: 100;
+}
+
+.start-screen h2 {
+  font-size: 36px;
+  color: #00f7ff;
+  text-shadow: 0 0 10px #00f7ff;
+  margin-bottom: 20px;
+}
+
+.start-screen p {
+  font-size: 24px;
+  color: #ff00ea;
+  text-shadow: 0 0 10px #ff00ea;
+}
+
+.obstacle::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: inherit;
+  border-radius: 3px 3px 0 0;
+}
+
+.obstacle::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: inherit;
+  border-radius: 0 0 3px 3px;
+}
+
+.start-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00f7ff;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 0 0 10px #00f7ff;
+  animation: pulse 1.5s infinite;
+}
+
+.double-jump-hint {
+  display: block;
+  font-size: 18px;
+  color: #ff00ea;
+  margin-top: 10px;
+  text-shadow: 0 0 10px #ff00ea;
+}
+
+.muffakir {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: #fff;
+  text-shadow: 0 0 10px #00f7ff;
+  z-index: 1;
+}
+
+.dino-character.jumping {
+  animation: jump 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-150px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}

@@ -1,0 +1,38 @@
+.pipe {
+  position: absolute;
+  width: 60px;
+  background: linear-gradient(90deg, #00ff88, #00bbff);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.pipe.top {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.pipe.bottom {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.pipe-head {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  left: -10px;
+  background: linear-gradient(90deg, #00ff88, #00bbff);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+.pipe.top .pipe-head {
+  bottom: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.pipe.bottom .pipe-head {
+  top: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
